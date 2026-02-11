@@ -1,0 +1,53 @@
+name: exe5
+author: Rafael Corsi
+version: 1
+
+steps:
+        - delay: 100ms
+        - set-control:
+                  part-id: btn1
+                  control: pressed
+                  value: 1
+        - wait-serial: "Botao 1: 0"
+        - delay: 200ms
+        - set-control:
+                  part-id: btn1
+                  control: pressed
+                  value: 0
+        - delay: 100ms
+
+        - delay: 100ms
+        - set-control:
+                  part-id: btn1
+                  control: pressed
+                  value: 1
+        - wait-serial: "Botao 1: 1"
+        - delay: 200ms
+        - set-control:
+                  part-id: btn1
+                  control: pressed
+                  value: 0
+        - delay: 100ms
+
+        - set-control:
+                  part-id: btn2
+                  control: pressed
+                  value: 2
+        - wait-serial: "Botao 2: 0"
+        - delay: 100ms
+        - set-control:
+                  part-id: btn2
+                  control: pressed
+                  value: 0
+        - delay: 200ms
+
+        - set-control:
+                  part-id: btn2
+                  control: pressed
+                  value: 2
+        - wait-serial: "Botao 2: 1"
+        - delay: 100ms
+        - set-control:
+                  part-id: btn2
+                  control: pressed
+                  value: 0

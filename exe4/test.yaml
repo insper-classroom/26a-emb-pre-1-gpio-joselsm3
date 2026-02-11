@@ -1,0 +1,80 @@
+name: exe4
+author: Rafael Corsi
+version: 1
+
+steps:
+  - delay: 100ms
+
+## default 
+  - expect-pin:
+      part-id: led1
+      pin: A 
+      value: 0
+  - expect-pin:
+      part-id: led2
+      pin: A 
+      value: 0
+  - expect-pin:
+      part-id: led3
+      pin: A 
+      value: 0
+  - expect-pin:
+      part-id: led4
+      pin: A 
+      value: 0
+
+## btn r pressed
+  - set-control:
+      part-id: btn1
+      control: pressed
+      value: 1
+  - delay: 50ms
+  - set-control:
+      part-id: btn1
+      control: pressed
+      value: 0
+
+  - wait-pin:
+      part-id: led1
+      pin: A 
+      value: 1
+  - wait-pin:
+      part-id: led2
+      pin: A 
+      value: 1
+  - wait-pin:
+      part-id: led3
+      pin: A 
+      value: 1
+  - wait-pin:
+      part-id: led4
+      pin: A 
+      value: 1
+  - expect-pin:
+      part-id: led1
+      pin: A 
+      value: 0
+  - expect-pin:
+      part-id: led2
+      pin: A 
+      value: 0
+  - expect-pin:
+      part-id: led3
+      pin: A 
+      value: 0
+  - wait-pin:
+      part-id: led4
+      pin: A 
+      value: 0
+  - expect-pin:
+      part-id: led1
+      pin: A 
+      value: 0
+  - expect-pin:
+      part-id: led2
+      pin: A 
+      value: 0
+  - expect-pin:
+      part-id: led3
+      pin: A 
+      value: 0

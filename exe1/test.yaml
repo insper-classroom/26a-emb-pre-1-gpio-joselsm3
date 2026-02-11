@@ -1,0 +1,33 @@
+name: exe1
+version: 1
+
+steps:
+  - delay: 10ms
+  - wait-pin:
+      part-id: led1
+      pin: A 
+      value: 1
+  - wait-pin:
+      part-id: led2
+      pin: A 
+      value: 1
+
+  - delay: 20ms
+  - wait-pin:
+      part-id: led1
+      pin: A 
+      value: 0
+  - wait-pin:
+      part-id: led2
+      pin: A 
+      value: 0
+
+  - delay: 20ms
+  - wait-pin:
+      part-id: led1
+      pin: A 
+      value: 1
+  - wait-pin:
+      part-id: led2
+      pin: A 
+      value: 1
