@@ -2,9 +2,41 @@
 #include "pico/stdlib.h"
 #include <stdio.h>
 
-int main() {
-  stdio_init_all();
+const int BTN1 = 28;
+const int BTN2 = 26;
+const int LED_R = 4;
+const int LED_G = 6;
 
-  while (true) {
-  }
+int main() {
+    stdio_init_all();
+
+    gpio_init(LED_R);
+    gpio_set_dir(LED_R, GPIO_OUT);
+
+    gpio_init(LED_G);
+    gpio_set_dir(LED_G, GPIO_OUT);
+
+    gpio_init(BTN1);
+    gpio_set_dir(BTN1, GPIO_IN);
+    gpio_pull_up(BTN1);
+
+    gpio_init(BTN2);
+    gpio_set_dir(BTN2, GPIO_IN);
+    gpio_pull_up(BTN2);
+
+    while (true) {
+
+        if (gpio_get(BTN1) == 0) {
+            gpio_put(LED_R, 1);
+        } else {
+            gpio_put(LED_R, 0);
+        }
+        if (gpio_get(BTN2) == 0) {
+            gpio_put(LED_G, 1);
+        } else {
+            gpio_put(LED_G, 0);
+        }
+
+        sleep_ms(100);
+    }
 }
