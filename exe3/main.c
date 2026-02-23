@@ -27,16 +27,15 @@ int main() {
     while (true) {
 
         if (gpio_get(BTN1) == 0) {
-            gpio_put(LED_R, 1);
-        } else {
-            gpio_put(LED_R, 0);
-        }
+            gpio_put(LED_R, !gpio_get(LED_R));
+            sleep_ms(200);
+        } 
+
         if (gpio_get(BTN2) == 0) {
-            gpio_put(LED_G, 1);
-        } else {
-            gpio_put(LED_G, 0);
+            gpio_put(LED_G, !gpio_get(LED_G));
+            sleep_ms(200);
         }
 
-        sleep_ms(100);
+        sleep_ms(50);
     }
 }
